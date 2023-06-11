@@ -1,4 +1,5 @@
 #pragma once
+#define _CRT_SECURE_NO_WARNINGS
 #include <cstring>
 #include <iostream>
 class MyCar {
@@ -13,6 +14,12 @@ private:
 	char* manufacturingCountry;// ארץ יצור
 	int hand;         // יד
 public:
+	MyCar();
+	MyCar(int licensePlate, int model, int price,
+		int year, const char* color, int engineCapacity,
+		const char* chalkType, const char* manufacturingCountry, int hand);
+	bool compare(MyCar& other);
+	void toPrint();
 	int getLicensePlate();
 	int getModel();
 	int getPrice();
@@ -27,10 +34,10 @@ public:
 	void setModel(int model);
 	void setPrice(int price);
 	void setYear(int year);
-	void setColor(char* color);
+	void setColor(const char* color);
 	void setEngineCapacity(int engineC);
-	void setChalkType(char* chalk);
-	void setManufacturingCountry(char* country);
+	void setChalkType(const char* chalk);
+	void setManufacturingCountry(const char* country);
 	void setHand(int hand);
 
 };

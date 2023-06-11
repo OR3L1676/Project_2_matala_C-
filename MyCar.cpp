@@ -1,11 +1,57 @@
+#pragma once
+#define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 using namespace std;
 #include "MyCar.h"
 
+MyCar::MyCar() {
+	licensePlate = 0;
+	model = 0;
+	price = 0;
+	year = 0;
+	color = nullptr;
+	engineCapacity = 0;
+	chalkType = nullptr;
+	manufacturingCountry = nullptr;
+	hand = 0;
+}
+
+MyCar::MyCar(int licensePlate, int model, int price, int year, const char* color, int engineCapacity, const char* chalkType, const char* manufacturingCountry, int hand)
+{
+	setLicensePlate(licensePlate);
+	setModel(model);
+	setPrice(price);
+	setYear(year);
+	setColor(color);
+	setEngineCapacity(engineCapacity);
+	setChalkType(chalkType);
+	setManufacturingCountry(manufacturingCountry);
+	setHand(hand);
+}
+bool MyCar::compare(MyCar& other) {
+	if (year < other.getYear()) {
+		return 1;
+	}
+	else {
+		return 0;
+	}
+}
+
+void MyCar::toPrint() {
+	cout << licensePlate << endl;
+	cout << model << endl;
+	cout << price << endl;
+	cout << year << endl;
+	cout << color << endl;
+	cout << engineCapacity << endl;
+	cout << chalkType << endl;
+	cout << manufacturingCountry << endl;
+	cout << hand << endl;
+}
+
 int MyCar::getLicensePlate()
 {
 	return licensePlate;
-
 }
 
 int MyCar::getModel()
@@ -72,13 +118,13 @@ void MyCar::setYear(int year)
 	this->year = year;
 }
 
-void MyCar::setColor(char* color)
+void MyCar::setColor(const char* color1)
 {
-	if (this->color) {
-		delete[] this->color;
+	if (color) {
+		delete[] color;
 	}
-	this->color = new char[strlen(color) + 1];
-	strcpy(this->color, color);
+	color = new char[strlen(color1) + 1];
+	strcpy(color, color1);
 }
 
 void MyCar::setEngineCapacity(int engineC)
@@ -88,7 +134,7 @@ void MyCar::setEngineCapacity(int engineC)
 	}
 }
 
-void MyCar::setChalkType(char* chalk)
+void MyCar::setChalkType(const char* chalk)
 {
 	if (chalkType) {
 		delete[] chalkType;
@@ -97,7 +143,7 @@ void MyCar::setChalkType(char* chalk)
 	strcpy(chalkType, chalk);
 }
 
-void MyCar::setManufacturingCountry(char* country)
+void MyCar::setManufacturingCountry(const char* country)
 {
 	if (manufacturingCountry) {
 		delete[] manufacturingCountry;

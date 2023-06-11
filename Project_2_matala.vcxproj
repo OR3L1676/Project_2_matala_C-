@@ -131,6 +131,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Console.cpp" />
+    <ClCompile Include="ManageCars.h" />
+    <ClCompile Include="ManageCars.cpp" />
     <ClCompile Include="MyCar.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
